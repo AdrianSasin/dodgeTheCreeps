@@ -2,7 +2,7 @@ extends Area2D
 
 signal hit
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
+@export var speed: float = 400.0 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 
 var shield = false
@@ -30,7 +30,7 @@ func _process(delta):
 		$AnimatedSprite2D.stop()
 
 	position += velocity * delta
-	##position = position.clamp(Vector2.ZERO, screen_size)
+	position = position.clamp(Vector2.ZERO, screen_size)
 
 	if velocity.x != 0:
 		$AnimatedSprite2D.animation = &"right"
@@ -39,11 +39,14 @@ func _process(delta):
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = &"up"
-		rotation = PI if velocity.y > 0 else 0
+		rotation = PI if velocity.y > 0 else 0.0
 	if Input.is_key_pressed(KEY_SPACE):
 		shield = true
+		$AnimatedSprite2D.modulate = Color(0, 1, 1)
 	else:
 		shield = false
+		$AnimatedSprite2D.modulate = Color.WHITE
+
 
 func start(pos):
 	position = pos
