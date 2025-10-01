@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccqoreueuxdb7"]
 
-[ext_resource type="Script" path="res://HUD.gd" id="1"]
+[ext_resource type="Script" uid="uid://buumkc84fpi5j" path="res://HUD.gd" id="1"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_fopy7"]
 action = &"start_game"
@@ -16,7 +16,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 78.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 1
 

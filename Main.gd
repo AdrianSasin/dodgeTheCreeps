@@ -25,6 +25,8 @@ func new_game():
 func _on_MobTimer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instantiate()
+	mob.defeated.connect(_on_mob_defeated)
+	
 
 	# Choose a random location on Path2D.
 	var mob_spawn_location = get_node(^"MobPath/MobSpawnLocation")
@@ -55,3 +57,7 @@ func _on_ScoreTimer_timeout():
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
+	
+func _on_mob_defeated():
+	score += 1
+	$HUD.update_score(score)
